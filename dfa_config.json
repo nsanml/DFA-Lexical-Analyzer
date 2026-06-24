@@ -1,0 +1,31 @@
+{
+  "states": ["q0", "q_i", "q_if", "q_e", "q_el", "q_els", "q_else", "q_w", "q_wh", "q_whi", "q_whil", "q_while", "q_id", "q_num", "q_op", "q_not", "q_eq", "q_err"],
+  "start_state": "q0",
+  "accept_states": {
+    "q_if": "KEYWORD",
+    "q_else": "KEYWORD",
+    "q_while": "KEYWORD",
+    "q_id": "IDENTIFIER",
+    "q_num": "NUMBER",
+    "q_op": "OPERATOR",
+    "q_eq": "OPERATOR"
+  },
+  "transitions": {
+    "q0": {
+      "i": "q_i", "e": "q_e", "w": "q_w",
+      "0-9": "q_num", "op_simple": "q_op", "=": "q_eq", "!": "q_not", "a-z": "q_id"
+    },
+    "q_i": {"f": "q_if", "a-z": "q_id"},
+    "q_e": {"l": "q_el", "a-z": "q_id"},
+    "q_el": {"s": "q_els", "a-z": "q_id"},
+    "q_els": {"e": "q_else", "a-z": "q_id"},
+    "q_w": {"h": "q_wh", "a-z": "q_id"},
+    "q_wh": {"i": "q_whi", "a-z": "q_id"},
+    "q_whi": {"l": "q_whil", "a-z": "q_id"},
+    "q_whil": {"e": "q_while", "a-z": "q_id"},
+    "q_id": {"a-z": "q_id", "0-9": "q_id"},
+    "q_num": {"0-9": "q_num"},
+    "q_not": {"=": "q_op"},
+    "q_eq": {"=": "q_op"}
+  }
+}
