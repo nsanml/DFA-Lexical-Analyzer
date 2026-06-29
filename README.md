@@ -39,7 +39,7 @@ Bu proje, Deterministic Finite Automata (DFA) mantığı kullanılarak sözcük 
 ## Proje Yapısı
 
 ```text id="r5wnj6"
-dfa-word-scanner/
+DFA-Lexical-Analyzer/
 │── index.html
 │── dfa_config.json
 │── README.md
